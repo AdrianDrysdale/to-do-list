@@ -48,9 +48,10 @@
                                              @csrf
                                              <button class="btn btn-success">tick</button>
                                          </form>
-                                         <form {{url('/tasks')}} method="POST">
+                                         <form action="{{ route('tasks.destroy', $task) }}" method="POST">
                                              @csrf
-                                             <button class="btn btn-danger">x</button>
+                                             @method('DELETE')
+                                             <button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
                                          </form>
                                      </div>
                                  @endif
