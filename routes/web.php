@@ -14,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [TaskController::class, 'index']);
-
+Route::controller(TaskController::class)->group(function () {
+    Route::get('/tasks', 'index');
+    Route::post('/tasks', 'store');
+});

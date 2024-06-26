@@ -17,7 +17,10 @@ class TaskController extends Controller
 
     public function store(StoreTaskRequest $request)
     {
-        //
+        $task = new Task();
+        $task->name = '';
+        $task->save();
+        return redirect('/users');
     }
 
     public function update(UpdateTaskRequest $request, Task $task)
