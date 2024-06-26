@@ -12,49 +12,54 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <img src="{{asset('assets/logo.png')}}"  alt="logo"/>
+                <img src="{{asset('logo.png')}}"  alt="logo"/>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3">
-                <form action="{{url('/tasks')}}" method="POST">
+            <div class="col-md-4">
+                <form action="{{ route('tasks.store') }}" method="POST">
                     @csrf
                     <input class="form-control" name="name" type="text" placeholder="Insert Task Name"/>
+                    @if($errors->has('name'))
+                        <div class="alert alert-danger">{{ $errors->first('name') }}</div>
+                    @endif
                     <button class="btn btn-primary btn-block" type="submit">Add</button>
                 </form>
             </div>
-            <div class="col-md-6">
-               <table class="table">
-                   <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Task</th>
-                        <th></th>
-                    </tr>
-                   </thead>
-                   <tbody>
-                   @foreach ($tasks as $task)
-                       <tr>
-                           <td>{{ $task->id }}</td>
-                           <td>{{ $task->name }}</td>
-                           <td>
-                             @if(!$task->completed)
-                                 <div>
-                                     <form {{url('/tasks')}} method="POST">
-                                         @csrf
-                                         <button class="btn btn-success">tick</button>
-                                     </form>
-                                     <form {{url('/tasks')}} method="POST">
-                                         @csrf
-                                         <button class="btn btn-danger">x</button>
-                                     </form>
-                                 </div>
-                             @endif
-                           </td>
-                       </tr>
-                   @endforeach
-                   </tbody>
-               </table>
+            <div class="col-md-8">
+               <div class="panel">
+                   <table class="table">
+                       <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Task</th>
+                            <th></th>
+                        </tr>
+                       </thead>
+                       <tbody>
+                       @foreach ($tasks as $task)
+                           <tr>
+                               <td>{{ $task->id }}</td>
+                               <td>{{ $task->name }}</td>
+                               <td>
+                                 @if(!$task->completed)
+                                     <div>
+                                         <form {{url('/tasks')}} method="POST">
+                                             @csrf
+                                             <button class="btn btn-success">tick</button>
+                                         </form>
+                                         <form {{url('/tasks')}} method="POST">
+                                             @csrf
+                                             <button class="btn btn-danger">x</button>
+                                         </form>
+                                     </div>
+                                 @endif
+                               </td>
+                           </tr>
+                       @endforeach
+                       </tbody>
+                   </table>
+               </div>
            </div>
         </div>
         <div class="row">
