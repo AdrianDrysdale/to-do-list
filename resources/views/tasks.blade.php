@@ -11,6 +11,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-
+   <div id="tasks">
+       <ul>
+           @foreach ($tasks as $task)
+               <li>
+                   {{ $task->id }}
+                   {{ $task->name }}
+               </li>
+           @endforeach
+       </ul>
+   </div>
 </body>
 </html>
