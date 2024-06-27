@@ -5,12 +5,12 @@
             <form action="{{ route('tasks.store') }}" method="POST">
                 @csrf
                 <div class="form-group">
-                    <input class="form-control" name="name" type="text" placeholder="Insert task name"/>
+                    <input class="form-control" name="name" type="text" placeholder="{{ __('tasks.placeholder_text') }}"/>
                     @if($errors->has('name'))
                         <div class="alert alert-danger">{{ $errors->first('name') }}</div>
                     @endif
                 </div>
-                <button class="btn btn-primary btn-block" type="submit">Add</button>
+                <button class="btn btn-primary btn-block" type="submit">{{ __('tasks.button_text') }}</button>
             </form>
         </div>
         <div class="col-md-8">
@@ -23,7 +23,7 @@
                        <thead>
                         <tr>
                             <th>#</th>
-                            <th>Task</th>
+                            <th>{{ __('tasks.table_header') }}</th>
                             <th></th>
                         </tr>
                        </thead>
