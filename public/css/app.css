@@ -1,7 +1,8 @@
 body {
-    background-color: #f2f2f2;
+    background-color: #f1f1f1;
     font-family: 'lato', serif;
-    font-weight: 300
+    font-weight: 300;
+    font-size: 16px;
 }
 
 header {
@@ -10,12 +11,9 @@ header {
 }
 
 footer {
-    margin-top: 100px
+    margin-top: 150px
 }
 
-.strike-through {
-    text-decoration: line-through;
-}
 
 th:first-child {
     width: 5%
@@ -27,4 +25,8 @@ th:nth-child(2) {
 
 td form {
     margin-right: 0.5rem;
+}
+
+.strike-through {
+    text-decoration: line-through;
 }

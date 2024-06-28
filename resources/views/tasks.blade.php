@@ -17,7 +17,7 @@
            <div class="panel panel-default">
                <div class="panel-body">
                    @if (session('message'))
-                       <div class="alert">{{ session('message') }}</div>
+                       <div class="alert alert-success">{{ session('message') }}</div>
                    @endif
                    <table class="table">
                        <thead>
